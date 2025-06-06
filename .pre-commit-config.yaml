@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: quality-check
+        name: Quality Checks (format, lint, test)
+        entry: make quality
+        language: system
+        types: [python]

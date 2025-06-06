@@ -1,0 +1,41 @@
+[project]
+name = "postcode"
+version = "1.0.0"
+description = "A Python package for handling UK postcode data"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.11.5",
+    "requests>=2.32.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.1.0",
+    "build>=1.2.2.post1",
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.0",
+    "pytest-sugar>=1.0.0",
+    "ruff>=0.11.12",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra --tb=short"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 140
+src = ["src"]
+
+[tool.black]
+line-length = 140
+target-version = ["py310"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests"]
